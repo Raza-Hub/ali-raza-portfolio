@@ -43,6 +43,10 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
   -webkit-text-size-adjust: 100%;
+  /* What shows when the page is over-scrolled: cream at the top, dark at the bottom */
+  background: linear-gradient(to bottom, var(--bg) 50%, var(--ink) 50%);
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 body {
   margin: 0;
@@ -54,6 +58,11 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  overflow-x: clip;
+  min-height: 100vh;
+}
+main {
+  overflow-x: clip;
 }
 h1,
 h2,
@@ -1180,16 +1189,18 @@ em {
    Footer
 ------------------------------------------------------------------- */
 .footer {
+  width: 100%;
+  background: var(--ink);
+  color: #a69f93;
+  font-size: 15px;
+}
+.footer-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
-  width: 100%;
-  padding: 28px max(32px, calc((100% - var(--wrap)) / 2));
-  background: var(--ink);
-  color: #a69f93;
-  font-size: 15px;
+  padding: 28px 0 calc(28px + env(safe-area-inset-bottom));
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 .footer-links {
@@ -1442,8 +1453,7 @@ em {
   .form-actions .btn {
     flex: 1 1 100%;
   }
-  .footer {
-    padding-inline: 20px;
+  .footer-inner {
     flex-direction: column;
     align-items: flex-start;
   }
