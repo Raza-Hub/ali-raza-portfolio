@@ -31,7 +31,10 @@ Put a square image in `public/` (e.g. `public/ali.jpg`) and set `photo: "/ali.jp
 
 ## Deploy
 
+The repo is connected to Vercel: every push to `main` deploys to https://ali-raza-portfolio-flame.vercel.app automatically, and other branches get preview URLs.
+
+Manual deploy (optional):
+
 ```sh
-npx vercel        # preview
-npx vercel --prod # live
+npx vercel --prod
 ```
